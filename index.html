@@ -18,122 +18,14 @@
   never taps anything, so what is deleted and what is kept is stated in plain
   text above the interactive part. A page that is only a button gets rejected.
 
-  Self-contained on purpose — no build step, no framework, one CDN import — so
-  it can be dropped into any static host as a single file.
+  No build step and no framework — this folder is the whole site and copies
+  onto any static host as-is. Four files: this page, privacy.html, the shared
+  style.css, and the title font beside them.
 
   BEFORE PUBLISHING, replace the two placeholders marked EDIT-ME below.
   ===========================================================================
 -->
-<style>
-  /* The game wears STEEL — see DEFAULT_PALETTE in src/ui/palettes.js. These are
-     that palette's tokens copied across verbatim rather than approximated, so
-     this page and the app are one interface rather than two that nearly match.
-
-     STEEL's register is SURFACES, not glow: desaturated slate panels you can
-     see the edge of, with a single warm brass accent doing all the signalling.
-     It is the least neon of the six, so nothing here gets a halo except the one
-     primary button — which is exactly how .rbtn behaves in the game. */
-  :root {
-    --bg:#0a0d12;
-    --panel:rgba(32, 39, 50, 0.88);
-    --panel-solid:#1b2029;
-    --line:rgba(180, 195, 215, 0.22);
-    --txt:#e6ecf4;
-    --dim:#8b97a8;
-    --acc:#e8c37a;
-    --acc2:#b9c6d8;
-    --ok:#7fd6a0;
-    --danger:#e8705f;
-    --btn:rgba(180, 195, 215, 0.09);
-    --btn-on:rgba(232, 195, 122, 0.22);
-    --glow:rgba(232, 195, 122, 0.20);
-    --font:'Segoe UI', system-ui, -apple-system, sans-serif;
-  }
-  /* Self-hosted beside this file, the same way the Capacitor build carries it,
-     so the page owes nothing to a font CDN that could be slow or blocked. */
-  @font-face {
-    font-family:'Audiowide';
-    font-style:normal; font-weight:400; font-display:swap;
-    src:url('./audiowide.woff2') format('woff2');
-  }
-  * { box-sizing:border-box; }
-  body {
-    margin:0; background:var(--bg); color:var(--txt); line-height:1.65;
-    font-family:var(--font);
-    padding:2.5rem 1.25rem 4rem;
-    -webkit-font-smoothing:antialiased;
-  }
-  main { max-width:42rem; margin:0 auto; }
-
-  .wordmark {
-    font-family:'Audiowide', var(--font);
-    font-size:clamp(1.05rem, 3.4vw, 1.35rem);
-    letter-spacing:.14em; color:var(--txt); margin:0 0 .5rem;
-  }
-  /* Weight 200 and wide tracking is how every screen title in the game is set
-     (.settitle, .titlebar h2) — the shape of the type is as much the theme as
-     the colour is. */
-  h1 {
-    font-weight:200; font-size:clamp(1.45rem, 5vw, 2rem);
-    letter-spacing:.16em; color:#fff; margin:0 0 .4rem;
-  }
-  /* Matches .set-gt, the group heading inside the game's Settings screen. */
-  h2 {
-    font-size:.75rem; letter-spacing:.22em; text-transform:uppercase;
-    color:var(--acc); opacity:.85; margin:2.4rem 0 .7rem;
-  }
-  .sub {
-    color:var(--dim); font-size:.78rem; letter-spacing:.2em;
-    text-transform:uppercase; margin:0 0 2.25rem;
-  }
-  ul { padding-left:1.15rem; margin:.5rem 0; }
-  li { margin:.35rem 0; }
-  a { color:var(--acc); }
-
-  /* 7px radius and a hairline over a filled panel — the game's .set-row. */
-  .card {
-    background:var(--panel); border:1px solid var(--line); border-radius:7px;
-    padding:1.35rem; margin-top:1rem;
-  }
-
-  /* .rbtn translated from a 52px circle to something a web form can use. The
-     colour logic is carried over unchanged: accent text, accent 2px ring,
-     btn-on fill, glow only on the primary. A hairline ring looked like a
-     smudge on a phone, which is why the game settled on 2px. */
-  button {
-    font:inherit; font-size:.78rem; font-weight:600;
-    letter-spacing:.18em; text-transform:uppercase;
-    color:var(--acc); background:var(--btn-on);
-    border:2px solid var(--acc); border-radius:7px;
-    padding:.75rem 1.3rem; cursor:pointer;
-    box-shadow:0 0 18px var(--glow);
-    transition:filter .12s ease, transform .12s ease;
-  }
-  button:hover:not(:disabled) { filter:brightness(1.12); }
-  button:active:not(:disabled) { transform:scale(.97); }
-  button.danger {
-    color:var(--danger); border-color:var(--danger);
-    background:rgba(232, 112, 95, 0.12); box-shadow:none;
-  }
-  button.ghost {
-    color:var(--dim); border-color:var(--line);
-    background:var(--btn); box-shadow:none;
-  }
-  button:disabled { opacity:.32; cursor:default; box-shadow:none; }
-  #signedin button { margin:0 .5rem .5rem 0; }
-
-  .who { color:var(--dim); margin:0 0 1rem; word-break:break-all; }
-  .who strong { color:var(--acc2); font-weight:600; }
-  .note { color:var(--dim); font-size:.9rem; margin-top:1rem; }
-  .bad { color:var(--danger); }
-  .good { color:var(--ok); }
-  footer {
-    color:var(--dim); font-size:.72rem; letter-spacing:.14em;
-    text-transform:uppercase; margin-top:3rem;
-    border-top:1px solid var(--line); padding-top:1.35rem;
-  }
-  [hidden] { display:none !important; }
-</style>
+<link rel="stylesheet" href="./style.css">
 </head>
 <body>
 <main>
@@ -220,7 +112,11 @@
   </p>
 
   <footer>
-    GRAVLANE account deletion &middot; last updated 14 August 2026
+    <div class="pagenav">
+      <a href="#">Delete your account</a>
+      <a href="./privacy.html">Privacy policy</a>
+    </div>
+    <span class="upd">Last updated 14 August 2026</span>
   </footer>
 
 </main>
