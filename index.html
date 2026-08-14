@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delete your GRAVLANE account</title>
+<meta name="description" content="Request deletion of your GRAVLANE account and all associated data.">
+<!--
+  ===========================================================================
+  GRAVLANE — account deletion.
+
+  Required by Google Play: an app that lets users create an account must offer
+  deletion from inside the app AND from a public web page reachable without
+  installing it. This is that page. The URL goes in Play Console under
+  App content -> Data deletion.
+
+  IT MUST READ AS A POLICY PAGE, NOT A FORM. A reviewer arrives signed out and
+  never taps anything, so what is deleted and what is kept is stated in plain
+  text above the interactive part. A page that is only a button gets rejected.
+
+  Self-contained on purpose — no build step, no framework, one CDN import — so
+  it can be dropped into any static host as a single file.
+
+  BEFORE PUBLISHING, replace the two placeholders marked EDIT-ME below.
+  ===========================================================================
+-->
+<style>
+  /* The game wears STEEL — see DEFAULT_PALETTE in src/ui/palettes.js. These are
+     that palette's tokens copied across verbatim rather than approximated, so
+     this page and the app are one interface rather than two that nearly match.
+
+     STEEL's register is SURFACES, not glow: desaturated slate panels you can
+     see the edge of, with a single warm brass accent doing all the signalling.
+     It is the least neon of the six, so nothing here gets a halo except the one
+     primary button — which is exactly how .rbtn behaves in the game. */
+  :root {
+    --bg:#0a0d12;
+    --panel:rgba(32, 39, 50, 0.88);
+    --panel-solid:#1b2029;
+    --line:rgba(180, 195, 215, 0.22);
+    --txt:#e6ecf4;
+    --dim:#8b97a8;
+    --acc:#e8c37a;
+    --acc2:#b9c6d8;
+    --ok:#7fd6a0;
+    --danger:#e8705f;
+    --btn:rgba(180, 195, 215, 0.09);
+    --btn-on:rgba(232, 195, 122, 0.22);
+    --glow:rgba(232, 195, 122, 0.20);
+    --font:'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+  /* Self-hosted beside this file, the same way the Capacitor build carries it,
+     so the page owes nothing to a font CDN that could be slow or blocked. */
+  @font-face {
+    font-family:'Audiowide';
+    font-style:normal; font-weight:400; font-display:swap;
+    src:url('./audiowide.woff2') format('woff2');
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; background:var(--bg); color:var(--txt); line-height:1.65;
+    font-family:var(--font);
+    padding:2.5rem 1.25rem 4rem;
+    -webkit-font-smoothing:antialiased;
+  }
+  main { max-width:42rem; margin:0 auto; }
+
+  .wordmark {
+    font-family:'Audiowide', var(--font);
+    font-size:clamp(1.05rem, 3.4vw, 1.35rem);
+    letter-spacing:.14em; color:var(--txt); margin:0 0 .5rem;
+  }
+  /* Weight 200 and wide tracking is how every screen title in the game is set
+     (.settitle, .titlebar h2) — the shape of the type is as much the theme as
+     the colour is. */
+  h1 {
+    font-weight:200; font-size:clamp(1.45rem, 5vw, 2rem);
+    letter-spacing:.16em; color:#fff; margin:0 0 .4rem;
+  }
+  /* Matches .set-gt, the group heading inside the game's Settings screen. */
+  h2 {
+    font-size:.75rem; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--acc); opacity:.85; margin:2.4rem 0 .7rem;
+  }
+  .sub {
+    color:var(--dim); font-size:.78rem; letter-spacing:.2em;
+    text-transform:uppercase; margin:0 0 2.25rem;
+  }
+  ul { padding-left:1.15rem; margin:.5rem 0; }
+  li { margin:.35rem 0; }
+  a { color:var(--acc); }
+
+  /* 7px radius and a hairline over a filled panel — the game's .set-row. */
+  .card {
+    background:var(--panel); border:1px solid var(--line); border-radius:7px;
+    padding:1.35rem; margin-top:1rem;
+  }
+
+  /* .rbtn translated from a 52px circle to something a web form can use. The
+     colour logic is carried over unchanged: accent text, accent 2px ring,
+     btn-on fill, glow only on the primary. A hairline ring looked like a
+     smudge on a phone, which is why the game settled on 2px. */
+  button {
+    font:inherit; font-size:.78rem; font-weight:600;
+    letter-spacing:.18em; text-transform:uppercase;
+    color:var(--acc); background:var(--btn-on);
+    border:2px solid var(--acc); border-radius:7px;
+    padding:.75rem 1.3rem; cursor:pointer;
+    box-shadow:0 0 18px var(--glow);
+    transition:filter .12s ease, transform .12s ease;
+  }
+  button:hover:not(:disabled) { filter:brightness(1.12); }
+  button:active:not(:disabled) { transform:scale(.97); }
+  button.danger {
+    color:var(--danger); border-color:var(--danger);
+    background:rgba(232, 112, 95, 0.12); box-shadow:none;
+  }
+  button.ghost {
+    color:var(--dim); border-color:var(--line);
+    background:var(--btn); box-shadow:none;
+  }
+  button:disabled { opacity:.32; cursor:default; box-shadow:none; }
+  #signedin button { margin:0 .5rem .5rem 0; }
+
+  .who { color:var(--dim); margin:0 0 1rem; word-break:break-all; }
+  .who strong { color:var(--acc2); font-weight:600; }
+  .note { color:var(--dim); font-size:.9rem; margin-top:1rem; }
+  .bad { color:var(--danger); }
+  .good { color:var(--ok); }
+  footer {
+    color:var(--dim); font-size:.72rem; letter-spacing:.14em;
+    text-transform:uppercase; margin-top:3rem;
+    border-top:1px solid var(--line); padding-top:1.35rem;
+  }
+  [hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<main>
+
+  <!-- The wordmark carries the game's identity in its own typeface, which frees
+       the heading to be a plain sentence instead of a stretched brand line. -->
+  <div class="wordmark">GRAVLANE</div>
+  <h1>Delete your account</h1>
+  <!-- EDIT-ME (1 of 2): your Play Console developer name. -->
+  <p class="sub">published by <strong>&nbsp;Burgerizza&nbsp;</strong></p>
+
+  <p>
+    This page permanently deletes your GRAVLANE account and everything stored with it.
+    You can do the same thing inside the game under <strong>Settings &rarr; Pilot &rarr; Delete account</strong>.
+    Both routes do exactly the same work.
+  </p>
+
+  <h2>What is deleted</h2>
+  <ul>
+    <li>Your account and its Google sign-in link</li>
+    <li>Your callsign, and the claim on that name</li>
+    <li>Every level you published, including its plays and ratings</li>
+    <li>Every rating you gave and every level completion recorded for you</li>
+    <li>Your cloud save &mdash; progress, best times, unlocks and statistics</li>
+  </ul>
+  <p>This cannot be undone. Levels you published are removed for everyone, not hidden.</p>
+
+  <h2>What is kept</h2>
+  <p>
+    Nothing. No copy of your data is retained after deletion and none of it is sold
+    or shared with anyone. Encrypted database backups may still hold a copy for up
+    to <strong>7 days</strong>, after which they roll off and it is gone permanently.
+  </p>
+
+  <h2>Playing without an account</h2>
+  <p>
+    GRAVLANE can be played offline with no account at all. Guest progress is stored
+    only on your own device, is never uploaded, and cannot be identified from this
+    page. To remove it, use <strong>Settings &rarr; Gameplay &rarr; Erase everything</strong>
+    in the game, or uninstall the app.
+  </p>
+
+  <h2>Delete it now</h2>
+
+  <div class="card">
+    <!-- signed out -->
+    <div id="signedout" hidden>
+      <p class="who">Sign in with the same Google account you use in GRAVLANE. This
+        is only used to prove the account is yours &mdash; nothing is stored by this page.</p>
+      <button id="signin">Sign in with Google</button>
+    </div>
+
+    <!-- signed in -->
+    <div id="signedin" hidden>
+      <p class="who">Signed in as <strong id="who"></strong></p>
+      <button id="del" class="danger">Delete my account</button>
+      <button id="cancel" class="ghost">Cancel</button>
+      <p class="note" id="delnote">You will be asked to confirm once.</p>
+    </div>
+
+    <!-- done -->
+    <div id="done" hidden>
+      <p class="good"><strong>Your account has been deleted.</strong></p>
+      <p class="note" id="donenote"></p>
+    </div>
+
+    <!-- something went wrong -->
+    <div id="failed" hidden>
+      <p class="bad"><strong>That did not work.</strong></p>
+      <p class="note" id="failnote"></p>
+      <button id="retry">Try again</button>
+    </div>
+
+    <div id="loading">
+      <p class="who">Loading&hellip;</p>
+    </div>
+  </div>
+
+  <h2>If you cannot sign in</h2>
+  <!-- EDIT-ME (2 of 2): a contact address you actually read. Play requires one. -->
+  <p>
+    Email <a href="mailto:burgerizza.admin@gmail.com">burgerizza.admin@gmail.com</a> from the address
+    linked to your account and the deletion will be carried out manually within 30 days.
+  </p>
+
+  <footer>
+    GRAVLANE account deletion &middot; last updated 14 August 2026
+  </footer>
+
+</main>
+
+<script type="module">
+// The project URL and publishable key are public by design: the key identifies
+// the project and authorises nothing, and every real limit is a row-level
+// security policy on the server. Same pair the game ships with.
+const SUPA_URL = 'https://eduucawonxeflhscdujy.supabase.co';
+const SUPA_KEY = 'sb_publishable_t0otS629qLY6FT-Oqa6Rlw_ykRGX6p7';
+
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+// PKCE rather than the implicit default: the token arrives as a short-lived
+// code in the query string instead of a full access token in the URL fragment,
+// which is the difference between a browser history entry that is useless to a
+// thief and one that is a live session.
+const supa = createClient(SUPA_URL, SUPA_KEY, {
+  auth: { flowType: 'pkce', detectSessionInUrl: true, persistSession: true },
+});
+
+const $ = (id) => document.getElementById(id);
+const PANES = ['loading', 'signedout', 'signedin', 'done', 'failed'];
+const show = (name) => { for (const p of PANES) $(p).hidden = p !== name; };
+const fail = (msg) => { $('failnote').textContent = msg; show('failed'); };
+
+// Where Google sends the browser back to. Derived rather than hard-coded so the
+// same file works on any host — but the resulting URL must also be listed in
+// Supabase -> Authentication -> URL Configuration -> Redirect URLs, or the
+// round trip lands on the site root with an error instead of back here.
+const selfUrl = () => location.origin + location.pathname;
+
+async function refresh() {
+  // An OAuth failure comes back as query params, and is worth naming: the usual
+  // cause is this URL missing from the Supabase redirect allowlist.
+  const q = new URLSearchParams(location.search);
+  if (q.get('error')) {
+    fail(q.get('error_description') || q.get('error'));
+    history.replaceState({}, '', selfUrl());
+    return;
+  }
+  const { data: { session } } = await supa.auth.getSession();
+  if (!session) return show('signedout');
+  $('who').textContent = session.user.email || 'your account';
+  show('signedin');
+}
+
+$('signin').onclick = async () => {
+  $('signin').disabled = true;
+  const { error } = await supa.auth.signInWithOAuth({
+    provider: 'google',
+    options: { redirectTo: selfUrl() },
+  });
+  if (error) { $('signin').disabled = false; fail(error.message); }
+};
+
+$('cancel').onclick = async () => {
+  await supa.auth.signOut().catch(() => {});
+  location.href = selfUrl();
+};
+
+$('retry').onclick = () => { location.href = selfUrl(); };
+
+// Two deliberate taps. The second is a different button label, so a double-tap
+// or a stray click cannot destroy an account on its own.
+let armed = false;
+$('del').onclick = async () => {
+  const btn = $('del');
+  if (!armed) {
+    armed = true;
+    btn.textContent = 'Yes — delete permanently';
+    $('delnote').textContent = 'Last chance. This cannot be undone.';
+    return;
+  }
+  btn.disabled = true;
+  $('cancel').disabled = true;
+  btn.textContent = 'Deleting…';
+
+  const { data: { session } } = await supa.auth.getSession();
+  if (!session) return fail('Your sign-in expired. Sign in again and retry.');
+
+  let res, body = null;
+  try {
+    res = await fetch(`${SUPA_URL}/functions/v1/delete-account`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${session.access_token}`,
+        apikey: SUPA_KEY,
+        'Content-Type': 'application/json',
+      },
+    });
+    body = await res.json().catch(() => null);
+  } catch (e) {
+    return fail('Could not reach the server. Check your connection and try again.');
+  }
+  if (!res.ok || !body?.ok) return fail(body?.error || `The server refused the request (${res.status}).`);
+
+  const n = body.removed?.levels || 0;
+  $('donenote').textContent = n
+    ? `${n} published level${n === 1 ? '' : 's'} removed. You can close this page.`
+    : 'You can close this page.';
+  // Local only: the account is already gone, so a server sign-out would 403
+  // against a token whose user no longer exists.
+  await supa.auth.signOut({ scope: 'local' }).catch(() => {});
+  show('done');
+};
+
+refresh();
+</script>
+</body>
+</html>
