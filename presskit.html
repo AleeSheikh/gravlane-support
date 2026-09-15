@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GRAVLANE — press kit</title>
+<meta name="description" content="Press kit for GRAVLANE: fact sheet, description, features, trailer, screenshots and contact.">
+
+<!-- Open Graph, so a link pasted into Discord, Reddit or a DM unfurls with the
+     feature graphic instead of a bare URL. Creators paste links constantly and
+     an unfurled card is the difference between a click and a scroll past.
+     Absolute on purpose: og:image will not resolve a relative path. If the
+     site moves off aleesheikh.github.io/gravlane-support, change both. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="GRAVLANE — a space road racer for Android">
+<meta property="og:description" content="Five lanes of road suspended in space. 25 levels, 19 tile types, a level editor. Free, no ads, no purchases.">
+<meta property="og:image" content="https://aleesheikh.github.io/gravlane-support/press/feature.png">
+<meta property="og:url" content="https://aleesheikh.github.io/gravlane-support/presskit.html">
+<meta name="twitter:card" content="summary_large_image">
+
+<!--
+  ===========================================================================
+  GRAVLANE — press kit.
+
+  Same four-file static site as the deletion and privacy pages: this reuses
+  style.css and the Audiowide face sitting beside it, so it drops onto the same
+  host with no build step and no new dependencies.
+
+  WHAT A CREATOR NEEDS, IN THE ORDER THEY NEED IT: what the game is in one
+  sentence, whether it costs anything, where to get it, what to say about it,
+  and images they can use without asking. Everything below is in that order.
+  The fact sheet is first because it is the part that gets copied.
+
+  Hosted at https://aleesheikh.github.io/gravlane-support/ with the deletion
+  and privacy pages, which link here.
+  ===========================================================================
+-->
+<link rel="stylesheet" href="./style.css">
+<style>
+  /* Two-column fact rows. Collapses to one column under 30rem, because a
+     creator opening this from a DM is on a phone. */
+  .facts { margin:1rem 0 0; }
+  .facts dl { display:grid; grid-template-columns:9.5rem 1fr; gap:.55rem 1.25rem; margin:0; }
+  .facts dt { color:var(--dim); font-size:.72rem; letter-spacing:.18em;
+              text-transform:uppercase; padding-top:.15rem; }
+  .facts dd { margin:0; color:var(--txt); }
+  @media (max-width:30rem) {
+    .facts dl { grid-template-columns:1fr; gap:.15rem; }
+    .facts dd { margin-bottom:.7rem; }
+  }
+  /* Screenshot grid. object-fit keeps the 16:9 shots honest at any column width. */
+  .shots { display:grid; grid-template-columns:repeat(auto-fill, minmax(13rem, 1fr));
+           gap:.75rem; margin:1rem 0; }
+  .shots a { display:block; border:1px solid var(--line); border-radius:7px; overflow:hidden; }
+  .shots img { display:block; width:100%; height:auto; }
+  /* The one-paragraph blurb is meant to be copied verbatim, so it is marked as
+     a quotable block rather than left as body text a reader has to guess about. */
+  .copyblock { background:var(--panel); border:1px solid var(--line);
+               border-radius:7px; padding:1.1rem 1.35rem; margin:.8rem 0; }
+  .copyblock p:first-child { margin-top:0; }
+  .copyblock p:last-child { margin-bottom:0; }
+  /* The trailer is portrait (9:16), shot for phones. Capped in height so it
+     does not become a full-screen wall on a desktop; the aspect-ratio keeps
+     its box stable before the metadata loads. */
+  .trailer { margin:1rem 0 .5rem; }
+  .trailer video { display:block; width:100%; max-width:22rem; max-height:80vh;
+                   aspect-ratio:9/16; margin:0 auto; background:#000;
+                   border:1px solid var(--line); border-radius:7px; object-fit:contain; }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="wordmark">GRAVLANE</div>
+  <h1>Press kit</h1>
+  <p class="sub">for press, creators and curators</p>
+
+  <p class="lede">
+    A fast, brutal arcade racer on a five-lane road suspended in space. Free on
+    Android, with no ads, no in-app purchases and no account required. There is
+    nothing to buy in it and no key to request &mdash; you can just install it.
+    A free four-level demo also runs in the browser on
+    <a href="https://gravlane.itch.io/gravlane">itch.io</a>.
+  </p>
+
+  <h2>Fact sheet</h2>
+  <div class="card facts">
+    <dl>
+      <dt>Title</dt><dd>GRAVLANE</dd>
+      <dt>Developer</dt><dd>Solo developer</dd>
+      <dt>Platform</dt><dd>Android (Google Play)</dd>
+      <dt>Price</dt><dd>Free. No ads, no in-app purchases, no subscription.</dd>
+      <dt>Released</dt><dd>September 2026</dd>
+      <dt>Store</dt><dd><a href="https://play.google.com/store/apps/details?id=com.gravlane.game">play.google.com &mdash; com.gravlane.game</a></dd>
+      <dt>Web demo</dt><dd><a href="https://gravlane.itch.io/gravlane">gravlane.itch.io/gravlane</a> &mdash; free, four levels, plays in the browser</dd>
+      <dt>Engine</dt><dd>three.js and WebAudio, wrapped with Capacitor</dd>
+      <dt>Requires</dt><dd>An internet connection only for leaderboards and community levels. The game itself plays fully offline.</dd>
+      <dt>Contact</dt><dd><a href="mailto:gravlane.support@gmail.com">gravlane.support@gmail.com</a></dd>
+    </dl>
+  </div>
+
+  <h2>One line</h2>
+  <div class="copyblock">
+    <p>A modern spiritual successor to SkyRoads: five lanes of road suspended in
+    space, 25 levels that never explain themselves, and a level editor you have to
+    beat your own level to publish in.</p>
+  </div>
+
+  <h2>One paragraph</h2>
+  <div class="copyblock">
+    <p>GRAVLANE is a fast, brutal arcade racer set on a road suspended in open
+    space. Four worlds carry you from a dying sun, through the wreckage of dead
+    stars, into a place where gravity stops obeying the rules and out the far side
+    of reality. Nineteen tile types &mdash; fire, crumbling ground, zero-gravity
+    fields, magnets, ghost tiles that are only pictures of tiles &mdash; and the
+    game explains none of them in advance. You learn what a tile does by surviving
+    it. Death restarts you in about a second, so failure costs almost nothing and
+    the levels are built to be memorised rather than reacted to. Every soundtrack
+    is synthesized live while you play, which is why the blinking tiles pulse on
+    the music's actual beat. It is free, carries no advertising and sells nothing.</p>
+  </div>
+
+  <h2>Features</h2>
+  <ul>
+    <li><strong>25 levels</strong> across four worlds, plus four hidden gauntlet levels that are meaner than anything in the story</li>
+    <li><strong>19 tile types</strong> the game refuses to explain &mdash; each one is logged in TILE DATA the first time you survive it</li>
+    <li><strong>Live-synthesized soundtracks.</strong> Every level's music is generated as you play, and the blinking tiles read the same clock as the synth</li>
+    <li><strong>Eight ships</strong> and a garage: paint, finishes, hull, wing and exhaust geometry, and stat upgrades bought with earned cores. Four of the ships are hidden and nothing tells you where</li>
+    <li><strong>THE FORGE</strong> &mdash; a full level editor that opens once you clear the story. Paint tiles, heights, obstacles and tunnels, choose a backdrop and a soundtrack. You must beat your own level before you are allowed to publish it</li>
+    <li><strong>Community levels</strong>, with in-app reporting and creator blocking</li>
+    <li><strong>Google Play leaderboards and achievements</strong>, with a best time recorded per level</li>
+    <li><strong>Touch, tilt or gamepad</strong></li>
+    <li><strong>No assets.</strong> Every graphic, ship, star and note is generated in code at runtime &mdash; nothing is downloaded</li>
+  </ul>
+
+  <h2>Trailer</h2>
+  <div class="trailer">
+    <video controls playsinline preload="metadata" poster="./press/trailer-poster.jpg">
+      <source src="./press/trailer.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p class="note">
+    30 seconds, portrait 1080&times;1920, with sound. Free to use in coverage and videos.
+    <a href="./press/trailer-1080x1920.mp4" download>Download the full-quality file</a> (20&nbsp;MB).
+  </p>
+
+  <h2>Screenshots</h2>
+  <p class="note">
+    Free to use in coverage, videos and articles, in whole or in part, with no
+    permission needed. Attribution is welcome but not required.
+  </p>
+  <div class="shots">
+    <a href="./press/flare.png"><img src="./press/flare.png" alt="FLARE — a solar flare fills the lanes with fire" loading="lazy"></a>
+    <a href="./press/nullspace.png"><img src="./press/nullspace.png" alt="NULLSPACE — the final gauntlet, in monochrome" loading="lazy"></a>
+    <a href="./press/forge.png"><img src="./press/forge.png" alt="THE FORGE — the level editor" loading="lazy"></a>
+    <a href="./press/threshold.png"><img src="./press/threshold.png" alt="THRESHOLD — a wormhole dominates the sky" loading="lazy"></a>
+    <a href="./press/whitefountain.png"><img src="./press/whitefountain.png" alt="WHITE FOUNTAIN — a white hole erupting behind the road" loading="lazy"></a>
+    <a href="./press/garage.png"><img src="./press/garage.png" alt="The garage, with a ship under customisation" loading="lazy"></a>
+  </div>
+
+  <h2>About the developer</h2>
+  <p>
+    GRAVLANE is the work of one person.
+    It was built because SkyRoads (Bluemoon Interactive, 1993) never got the
+    successor it deserved, and it is free because it was never meant to be a
+    business.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    <a href="mailto:gravlane.support@gmail.com">gravlane.support@gmail.com</a> &mdash; happy to answer anything
+    about the game or how it was built, and quick to reply.
+  </p>
+
+  <footer>
+    <div class="pagenav">
+      <a href="./">Delete your account</a>
+      <a href="./privacy.html">Privacy policy</a>
+      <a href="#">Press kit</a>
+    </div>
+    <span class="upd">Last updated 15 September 2026</span>
+  </footer>
+
+</main>
+</body>
+</html>
