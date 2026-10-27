@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GRAVLANE — Developer tooling and Reddit data</title>
+<meta name="description" content="How the GRAVLANE developer uses the Reddit API in a private, read-only tool.">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main>
+
+  <div class="wordmark">GRAVLANE</div>
+  <h1>Developer tooling and Reddit data</h1>
+
+  <p class="lede">
+    This page describes a small private tool the developer of GRAVLANE uses to
+    take part in Reddit communities by their rules. It is separate from the game:
+    the game itself never touches Reddit, and nothing here affects players.
+  </p>
+
+  <h2>What the tool does with Reddit data</h2>
+  <div class="summary">
+    <ul>
+      <li>It is read-only. It does not post, comment, vote, message, join or moderate.</li>
+      <li>It reads the rules, description and post requirements of subreddits the developer takes part in, so posts follow each community's rules.</li>
+      <li>It reads the developer's own submissions and comments (including whether they were removed) and the list of subreddits joined.</li>
+      <li>It makes fewer than 100 requests a day, over OAuth, as the account u/gravlane-srr.</li>
+    </ul>
+  </div>
+
+  <h2>What it does not do</h2>
+  <p>
+    It does not collect other users' data, does not sell or share any Reddit data,
+    does not use Reddit content to train or fine-tune any model, and does not send
+    Reddit content to any AI service. All posting is done by the developer by hand in
+    Reddit's own interface.
+  </p>
+
+  <h2>Storage and deletion</h2>
+  <p>
+    Only subreddit rules text and the developer's own account activity are stored,
+    in a private database that only the developer can open. Stored Reddit data is
+    deleted on request or if Reddit's access is withdrawn.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    <a href="mailto:gravlane.support@gmail.com">gravlane.support@gmail.com</a>
+  </p>
+
+  <footer>
+    <div class="pagenav">
+      <a href="./">Delete your account</a>
+      <a href="./privacy.html">Privacy policy</a>
+      <a href="./presskit.html">Press kit</a>
+    </div>
+    <span class="upd">Last updated 27 October 2026</span>
+  </footer>
+
+</main>
+</body>
+</html>
