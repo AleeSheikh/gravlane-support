@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GRAVLANE — a space road racer for Android</title>
+<meta name="description" content="GRAVLANE is a free arcade racer on a five-lane road suspended in space: 25 levels, a level editor, no ads and no purchases. Play on Android or try the browser demo.">
+<link rel="canonical" href="https://aleesheikh.github.io/gravlane-support/home.html">
+<link rel="stylesheet" href="./style.css">
+<link rel="icon" href="./favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="./icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="GRAVLANE — a space road racer for Android">
+<meta property="og:description" content="Five lanes of road suspended in space. 25 levels, 19 tile types, a level editor. Free, no ads, no purchases.">
+<meta property="og:image" content="https://aleesheikh.github.io/gravlane-support/press/feature.png">
+<meta property="og:url" content="https://aleesheikh.github.io/gravlane-support/home.html">
+<meta name="twitter:card" content="summary_large_image">
+
+<!--
+  GRAVLANE — home page.
+
+  The public face of the project: what the game is, where to get it, and the
+  private GRAVLANE Publisher tool that the TikTok developer app describes. Same
+  static site as the other pages (style.css, Audiowide, ./press/), no build step.
+  Its icon is the same file as the favicon and the TikTok app icon, on purpose.
+-->
+<style>
+  main { max-width:52rem; }
+  .top { display:flex; align-items:center; gap:1rem; margin-bottom:.4rem; }
+  .top img { width:4.5rem; height:4.5rem; border-radius:18px; border:1px solid var(--line); flex:none; }
+  .top .wordmark { font-size:clamp(1.5rem, 6vw, 2.3rem); margin:0; }
+  .top .sub { margin:.2rem 0 0; }
+  nav.site { display:flex; flex-wrap:wrap; gap:.4rem 1.4rem; margin:1.4rem 0 0; padding:.8rem 0;
+             border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+             font-size:.74rem; letter-spacing:.16em; text-transform:uppercase; }
+  nav.site a { text-decoration:none; }
+  nav.site a:hover { text-decoration:underline; }
+  .cta { display:flex; flex-wrap:wrap; gap:.75rem; margin:1.4rem 0 .4rem; }
+  .cta a { display:inline-block; text-decoration:none; font-size:.78rem; font-weight:600;
+           letter-spacing:.18em; text-transform:uppercase; color:var(--acc);
+           background:var(--btn-on); border:2px solid var(--acc); border-radius:7px;
+           padding:.75rem 1.3rem; box-shadow:0 0 18px var(--glow); }
+  .cta a.alt { color:var(--acc2); border-color:var(--line); background:var(--btn); box-shadow:none; }
+  .cta a:hover { filter:brightness(1.12); }
+  .hero { margin:1.6rem 0 0; border:1px solid var(--line); border-radius:7px; overflow:hidden; }
+  .hero img { display:block; width:100%; height:auto; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(14rem, 1fr)); gap:.75rem; margin:1rem 0; }
+  .grid .card { margin:0; padding:1.1rem 1.25rem; }
+  .grid .card strong { display:block; color:var(--acc2); margin-bottom:.2rem; }
+  .shots { display:grid; grid-template-columns:repeat(auto-fill, minmax(14rem, 1fr)); gap:.75rem; margin:1rem 0; }
+  .shots a { display:block; border:1px solid var(--line); border-radius:7px; overflow:hidden; }
+  .shots img { display:block; width:100%; height:auto; }
+  .trailer video { display:block; width:100%; max-width:22rem; max-height:80vh; aspect-ratio:9/16;
+                   margin:0 auto; background:#000; border:1px solid var(--line); border-radius:7px; object-fit:contain; }
+  .follow a { margin-right:1.2rem; white-space:nowrap; }
+</style>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="top">
+      <img src="./icon-192.png" alt="GRAVLANE app icon: a ship on a glowing road leading to an orange moon" width="72" height="72">
+      <div>
+        <div class="wordmark">GRAVLANE</div>
+        <p class="sub">A space road racer for Android</p>
+      </div>
+    </div>
+    <nav class="site" aria-label="Main">
+      <a href="#game">The game</a>
+      <a href="#trailer">Trailer</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#publisher">GRAVLANE Publisher</a>
+      <a href="./presskit.html">Press kit</a>
+      <a href="./privacy.html">Privacy</a>
+      <a href="./tools-terms.html">Terms</a>
+    </nav>
+  </header>
+
+  <p class="lede">
+    A modern spiritual successor to SkyRoads: five lanes of road suspended in
+    space, 25 levels that never explain themselves, and a level editor in which
+    you have to beat your own level before you can publish it. Free, with no ads
+    and no in-app purchases.
+  </p>
+
+  <div class="cta">
+    <a href="https://play.google.com/store/apps/details?id=com.gravlane.game">Get it on Google Play</a>
+    <a class="alt" href="https://gravlane.itch.io/gravlane">Play the free browser demo</a>
+  </div>
+
+  <div class="hero">
+    <img src="./press/feature.png" alt="GRAVLANE feature artwork: the ship on the road in open space" width="1024" height="500">
+  </div>
+
+  <h2 id="game">The game</h2>
+  <p>
+    GRAVLANE is a fast, brutal arcade racer set on a road suspended in open space.
+    Four worlds carry you from a dying sun, through the wreckage of dead stars, into
+    a place where gravity stops obeying the rules. Nineteen tile types &mdash; fire,
+    crumbling ground, zero-gravity fields, magnets, ghost tiles that are only
+    pictures of tiles &mdash; and the game explains none of them in advance. You
+    learn what a tile does by surviving it. Death restarts you in about a second,
+    so failure costs almost nothing and the levels are built to be memorised rather
+    than reacted to.
+  </p>
+
+  <div class="grid">
+    <div class="card"><strong>25 levels</strong>Across four worlds, plus four hidden gauntlet levels that are meaner than anything in the story.</div>
+    <div class="card"><strong>Live-synthesized music</strong>Every soundtrack is generated as you play, and the blinking tiles pulse on the music's real beat.</div>
+    <div class="card"><strong>THE FORGE</strong>A full level editor. Paint tiles, heights, obstacles and tunnels, then beat your own level to publish it.</div>
+    <div class="card"><strong>Free and offline</strong>No ads, no purchases and no account needed to play. The game runs fully offline.</div>
+  </div>
+
+  <p class="note">
+    Released September 2026 for Android. Built with three.js and WebAudio, wrapped
+    with Capacitor. Every graphic, ship, star and note is generated in code.
+  </p>
+
+  <h2 id="trailer">Trailer</h2>
+  <div class="trailer">
+    <video controls playsinline preload="metadata" poster="./press/trailer-poster.jpg">
+      <source src="./press/trailer.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <h2 id="screenshots">Screenshots</h2>
+  <div class="shots">
+    <a href="./press/flare.png"><img src="./press/flare.png" alt="FLARE — a solar flare fills the lanes with fire" loading="lazy"></a>
+    <a href="./press/nullspace.png"><img src="./press/nullspace.png" alt="NULLSPACE — the final gauntlet, in monochrome" loading="lazy"></a>
+    <a href="./press/forge.png"><img src="./press/forge.png" alt="THE FORGE — the level editor" loading="lazy"></a>
+    <a href="./press/threshold.png"><img src="./press/threshold.png" alt="THRESHOLD — a wormhole dominates the sky" loading="lazy"></a>
+    <a href="./press/whitefountain.png"><img src="./press/whitefountain.png" alt="WHITE FOUNTAIN — a white hole erupting behind the road" loading="lazy"></a>
+    <a href="./press/garage.png"><img src="./press/garage.png" alt="The garage, with a ship under customisation" loading="lazy"></a>
+  </div>
+
+  <h2 id="publisher">GRAVLANE Publisher</h2>
+  <p>
+    GRAVLANE Publisher is a small private tool used only by the developer of
+    GRAVLANE. It sends the game's own gameplay clips to the developer's own TikTok
+    account (<a href="https://www.tiktok.com/@gravlane_srr">@gravlane_srr</a>), as
+    drafts or as posts the developer approves. It is not offered to the public and
+    has no other users.
+  </p>
+  <ul>
+    <li>It only works with the developer's own TikTok account, signed in by the developer.</li>
+    <li>It does not read or store other TikTok users' data, and it never sells or shares TikTok data.</li>
+    <li>Nothing is posted unless the developer presses the post button.</li>
+  </ul>
+  <p>
+    Read the <a href="./tools-privacy.html">Publisher privacy policy</a> and the
+    <a href="./tools-terms.html">Publisher terms of service</a>.
+  </p>
+
+  <h2>About the developer</h2>
+  <p>
+    GRAVLANE is the work of one person. It was built because SkyRoads (Bluemoon
+    Interactive, 1993) never got the successor it deserved, and it is free because
+    it was never meant to be a business.
+  </p>
+
+  <h2>Find GRAVLANE</h2>
+  <p class="follow">
+    <a href="https://www.tiktok.com/@gravlane_srr">TikTok</a>
+    <a href="https://www.instagram.com/gravlane_srr">Instagram</a>
+    <a href="https://www.facebook.com/gravlane.srr">Facebook</a>
+    <a href="https://bsky.app/profile/gravlane.bsky.social">Bluesky</a>
+    <a href="https://mastodon.social/@gravlane">Mastodon</a>
+    <a href="https://x.com/Gravlane">X</a>
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    <a href="mailto:gravlane.support@gmail.com">gravlane.support@gmail.com</a> &mdash;
+    questions about the game, press requests, or help with your data.
+  </p>
+
+  <footer>
+    <div class="pagenav">
+      <a href="#">Home</a>
+      <a href="./presskit.html">Press kit</a>
+      <a href="./privacy.html">Game privacy policy</a>
+      <a href="./tools-privacy.html">Publisher privacy policy</a>
+      <a href="./tools-terms.html">Terms of service</a>
+      <a href="./">Delete your account</a>
+    </div>
+    <span class="upd">Last updated 4 November 2026</span>
+  </footer>
+
+</main>
+</body>
+</html>
